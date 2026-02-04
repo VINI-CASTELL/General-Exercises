@@ -47,10 +47,12 @@ def main():
     # 5) Série temporal
     mensal = crescimento_mensal(df)
 
-    # 6) Gráficos (abre janelas com gráficos)
-    plot_receita_mensal(mensal)
-    plot_top_barras(prod, "produto", "receita", "Top 10 produtos por receita")
-    plot_top_barras(reg.head(10), "regiao", "receita", "Top regiões por receita")
+    # 6) Gráficos (abre janelas com gráficos) + salva PNG em outputs/
+plot_receita_mensal(mensal)
+
+plot_top_barras(prod, "produto", "receita", "Top 10 produtos por receita", "top_produtos_receita.png")
+plot_top_barras(reg.head(10), "regiao", "receita", "Top regiões por receita", "top_regioes_receita.png")
+
 
     # 7) “Insights” automáticos simples (pra já ter cara de projeto)
     mensal_sem_na = mensal.dropna(subset=["crescimento_mom"])
